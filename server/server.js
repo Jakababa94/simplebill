@@ -1,14 +1,13 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 const connectDB = require('./config/db');
 
 // Import routes
-const authRoutes = require('./routes/auth');
-const invoiceRoutes = require('./routes/invoices');
-const clientRoutes = require('./routes/clients');
-const dashboardRoutes = require('./routes/dashboard');
+const authRoutes = require('./routes/authRoutes');
+const invoiceRoutes = require('./routes/invoiceRoutes');
+const clientRoutes = require('./routes/clientRoutes');
+const dashboardRoutes = require('./routes/dashboardRoutes');
 
 
 const app = express();
