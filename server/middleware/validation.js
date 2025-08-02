@@ -14,7 +14,7 @@ const validate = (req, res, next) => {
 
 // User registration validation
 const validateRegistration = [
-  body('name')
+  body('fullName')
     .trim()
     .isLength({ min: 2, max: 50 })
     .withMessage('Name must be between 2 and 50 characters'),
@@ -42,7 +42,7 @@ const validateLogin = [
 
 // Client validation
 const validateClient = [
-  body('name')
+  body('fullName')
     .trim()
     .isLength({ min: 1, max: 100 })
     .withMessage('Client name is required and must not exceed 100 characters'),

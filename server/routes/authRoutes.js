@@ -10,7 +10,7 @@ const router = express.Router();
 // @access  Public
 router.post('/register', async (req, res) => {
   try {
-    const { name, email, password, company } = req.body;
+    const { fullName, email, password, company } = req.body;
 
     // Check if user exists
     const existingUser = await User.findOne({ email });
@@ -20,7 +20,7 @@ router.post('/register', async (req, res) => {
 
     // Create user
     const user = new User({
-      name,
+      fullName,
       email,
       password,
       company
@@ -32,7 +32,7 @@ router.post('/register', async (req, res) => {
     const token = jwt.sign(
       { userId: user._id },
       process.env.JWT_SECRET || 'fallback_secret',
-      { expiresIn: '7d' }
+      { expiresIn: '1d' }
     );
 
     res.status(201).json({
